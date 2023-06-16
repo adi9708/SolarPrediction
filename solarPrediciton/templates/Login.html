@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+      </script>
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+	<style>
+	 .bg
+        {
+        background-image: url("../static/images/img1.jpg");
+        background-repeat:no-repeat;
+        background-size: cover;
+        }
+      </style>
+</head>
+<body class="bg">
+<nav class="navbar navbar-inverse" style="background-color:#547fce !important ; height:70px;border-radius:20px;">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="padding-left:50px;color:white;font-family:georgia;font-style:italic;font-size:30px;">SOLAR ENERGY PREDICTION</a>
+    </div>
+    <ul class="nav navbar-nav">
+     <!-- <li class="active"><a href="/Admin">Admin Login</a></li>
+      <li><a href="/chatBox">Chat</a></li>
+      <li><a href="/PredictionInput">Solar Prediction</a></li>-->
+      <li><a href="{{url_for('Admin')}}" style="color:white;padding-left:600px;font-size:20px;">ADMIN LOGIN</a></li>
+
+
+
+    </ul>
+  </div>
+</nav>
+<form action="{{url_for('adminlogin')}}" method="POST">
+	<div class="container">
+	<section id="content">
+    <div style="display:block" id="form">
+    <span>{{message}}</span>
+			<h1>Login</h1>
+			<div>
+				<input type="text" name="username" placeholder="Username" required="" id="username" />
+			</div>
+			<div>
+				<input type="password" name="password" placeholder="Password"  required="" id="password" />
+			</div>
+
+
+			<div>
+
+			<center>
+				<input type="submit" value="Login"/>
+				</center>
+			</div>
+
+
+			<!-- form -->
+
+			</div>
+
+	</section>
+		</div>
+    </form>
+</body>
+</html>

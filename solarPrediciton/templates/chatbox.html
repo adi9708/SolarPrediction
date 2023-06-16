@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.min.css'>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>
+
+    <script src="{{ url_for('static', filename='function.js') }}"></script>
+    <!--<link rel="stylesheet" href="../venv/include/css/style.css">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='normalize.css') }}">
+<style>
+    #bg
+    {
+    background-image:url(../static/images/img1.jpg);
+    }
+     .button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #547fce;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #547fce}
+
+.button:active {
+  background-color: #547fce;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+</style>
+
+
+
+</head>
+<body id="bg">
+<nav class="navbar navbar-inverse" style="background-color:#547fce !important ; height:70px;border-radius:20px;">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="padding-left:50px;color:white;font-family:georgia;font-style:italic;font-size:30px;">SOLAR ENERGY PREDICTION</a>
+    </div>
+    <ul class="nav navbar-nav">
+
+      <li><a href="{{url_for('main')}}" style="color:white;padding-left:700px;font-size:20px;">HOME</a></li>
+
+
+
+    </ul>
+  </div>
+</nav>
+<div id="formstart">
+<button class="open-button button" onclick="openForm()" >Start Chat</button>
+</div>
+<div class="chat" id="chat" style="display:none">
+<div class="chat-title" >
+
+     <figure class="avatar">
+      <img src="img/user.png" /></figure>
+
+
+      <span id="closechat"  style="float:right; color:white" class="closechat" onclick="closechat()">Close</span>
+  </div>
+  <div class="messages">
+    <div class="messages-content" style="overflow:auto !important;"></div>
+  </div>
+  <div class="message-box">
+    <textarea type="text" class="message-input" style="font-size:20px;height:40px;" placeholder="Type message..."></textarea>
+   <center><button type="submit"   onclick="send()" class="btn btn-primary">Send</button></center>
+  </div>
+  </div>
+<div ></div>
+</body>
+</html>

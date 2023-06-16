@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaire</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        #bg1
+        {
+        background-image: url("../static/images/img1.jpg")
+        }
+         #bg2
+        {
+       background-image: url({{ url_for('static', filename='images/img1.jpg') }})
+        }
+         #bg3
+        {
+       background-image: url({{ url_for('static', filename='images/img1.jpg') }})
+        }
+         #bg4
+        {
+       background-image: url({{ url_for('static', filename='images/img1.jpg') }})
+        }
+        .button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #547fce;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #547fce}
+
+.button:active {
+  background-color: #547fce;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+    </style>
+</head>
+<body>
+<div>
+
+<div >
+<nav class="navbar navbar-inverse" style="background-color:#547fce !important ; height:70px;border-radius:20px;">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="padding-left:50px;color:white;font-family:georgia;font-style:italic;font-size:30px;">SOLAR ENERGY PREDICTION</a>
+    </div>
+    <ul class="nav navbar-nav">
+     <!-- <li class="active"><a href="/Admin">Admin Login</a></li>
+      <li><a href="/chatBox">Chat</a></li>
+      <li><a href="/PredictionInput">Solar Prediction</a></li>-->
+      <li><a href="#" style="color:white;padding-left:600px;font-size:20px;">Welcome</a></li>
+
+    </ul>
+  </div>
+</nav>
+</div>
+</div>
+<div>
+    <div class="col-md-6" id="bg1" style="border:15px ridge #b3cce6;height:500px;border-radius:80px;">
+        <div class ="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6" style="padding-top:50px;"><span style="font-size:30px;color:white;">WANT TO PREDICT SOLAR ENERGY AT YOU LOCATION ...</span></div>
+        </div>
+        <div class ="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6" style="padding-top:150px;">
+            <a href="{{ url_for('PredictionInput') }}"> <button class="button">CLICK HERE</button></div>
+
+            </div>
+    </div>
+
+     <div class="col-md-6" id="bg4" style="border:15px ridge #b3cce6;height:500px;border-radius:80px;">
+       <div class ="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6" style="padding-top:50px;"><span style="font-size:30px;color:white;">CALCULATOR</span></div>
+        </div>
+        <div class ="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6" style="padding-top:230px;">
+            <button class="button" >CLICK HERE</button></a></div>
+
+            </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</body>
+</html>

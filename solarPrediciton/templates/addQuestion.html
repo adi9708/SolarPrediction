@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.3/jquery.mCustomScrollbar.concat.min.js'></script>
+
+            <script src="../venv/include/function/function.js"></script>
+    <link rel="stylesheet" href="../venv/include/css/style.css">
+</head>
+<body>
+div class="container-fluid" style="width:100%;height:100%;">
+	   <div style="margin-right:30px;">
+			<nav class="navbar  navbar-fixed-top" style="background-color:#6e263c ;">
+           <div class="navbar-header"></div>
+
+      <ul class="nav navbar-nav navbar-right" style="margin-right:30px;">
+       <!-- <li> <a href="Link1.jsp" style="color:orange;font-size: 20px;font-family: sans-serif; ">Previous Page</a></li> -->
+      <li style="font-size:17px;"><a  href="/"><b style="color:#ff8000;">LogOut</b></a></li>
+      </ul>
+      </nav></div>
+
+
+
+
+
+
+
+
+   <div class="row"  style="width:100%;margin-top:90px;">
+
+    <!-- <marquee><label  style="font-size: 25px;color:yellow;">SOLAR QUESTIONS</label></marquee>  -->
+ </div></br>
+
+ <div class="col-sm-2"></div>
+
+<div class="col-sm-8">
+   <center> <span style="color:green;font-size:15px;">{{msg}}</span></center>
+    <form action="{{url_for('addQuestion')}}" method="POST">
+
+	<div class="panel panel-primary">
+	<div class="panel-heading" style="background-color:#6e263c ">Question Panel:</div>
+	<div class="panel body panel-transparent">
+	<p style="font:Brotherina;font-style: italic; text-align:center; ">QUESTION:</p>
+	     	<div class="col-sm-2"></div>
+	<input type="text" id= "question" name="question" class="form-control" style="width:640px;height: 30px;" placeholder="Enter Question">
+	</div>
+
+	</div>
+
+	<div class="panel panel-primary">
+	<div class="panel-heading" style="background-color:#6e263c">Answer Panel:</div>
+	<div class="panel body panel-transparent">
+	<br>
+	<p style="font:Brotherina;font-style: italic; text-align:center"> ANSWER: </p>
+
+		<div class="col-sm-2"></div>
+	<input type="text" name="answer" class="form-control" id="answer" placeholder="Enter Answer" style="width:640px;height: 30px;">
+	</div>
+	</div>
+
+	<center>
+ <button class="btn btn-success" type="submit"  style="width:100px;" id="Submit">Submit</button>
+
+</center>
+</form>
+</div>
+
+
+
+
+</body>
+</html>

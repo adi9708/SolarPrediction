@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solar Prediction</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        function validate() {
+
+        var cloudCoverage, visibility;
+
+
+        cloudCoverage = $("#cloudCoverage").val();
+        visibility = $("#visibility").val();
+        temperature = $("#temperature").val();
+        dewPoint = $("#dewPoint").val();
+        relativehumidity = $("#relativehumidity").val();
+        windSpeed = $("#windSpeed").val();
+        stationPressure = $("#stationPressure").val();
+        altimeter = $("#altimeter").val();
+
+        if(cloudCoverage == "")
+        {
+           $("#cloudCoverage").val("0.0");
+         }
+         if(visibility == "")
+        {
+           $("#visibility").val("0.0");
+         }
+         if(temperature == "")
+        {
+           $("#temperature").val("0.0");
+         }
+         if(cloudCoverage == "")
+        {
+           $("#cloudCoverage").val("0.0");
+         }
+         if(cloudCoverage == "")
+        {
+           $("#cloudCoverage").val("0.0");
+         }if(cloudCoverage == "")
+        {
+           $("#cloudCoverage").val("0.0");
+         }if(cloudCoverage == "")
+        {
+           $("#cloudCoverage").val("0.0");
+         }if(cloudCoverage == "")
+        {
+           $("#cloudCoverage").val("0.0");
+         }
+
+
+
+
+          if (isNaN(cloudCoverage) || cloudCoverage > 100  || isNaN(visibility) || visibility > 100
+          || isNaN(temperature) || temperature > 100 || isNaN(dewPoint) || dewPoint > 100
+          || isNaN(relativehumidity) || relativehumidity > 100 || isNaN(windSpeed) || windSpeed > 100
+          || isNaN(stationPressure) || stationPressure > 100 || isNaN(altimeter) || altimeter > 100 ) {
+            alert("Invalid values ,Enter only Interger / Float values ");
+            return false;
+
+          } else {
+            text = "Input OK";
+          }
+
+        }
+
+
+        function fetchapivalues()
+        {
+        var date =$("#date").val();
+         $.ajax({
+         method:'POST',
+         url:'/fetchapi',
+         data:{date:date},
+         datatype:'JSON',
+         success:function(data)
+         {
+
+          $.each(data,function(key,values)
+          {
+               $("#TEMPERATURE").val(values[1])
+                $("#ATMOSPHERE").val(values[2])
+                $("#HUMIDITY").val(values[3])
+                 $("#WINDSPEED").val(values[4])
+                  $("#SUNSHINE").val(values[5])
+                   $("#AMOUNTOFCLOUD").val(values[6])
+                    $("#GLOBALSOLARRADIATION").val(values[7])
+                     $("#DIFFUSESOLARRADIATION").val(values[8])
+
+          });
+
+         <!--var stringify = JSON.stringify(data);-->
+         <!--console.log(stringify)-->
+         <!--var parseval =JSON.parse(stringify);-->
+         <!--console.log(parseval);-->
+
+
+         <!--if(parseval.hasOwnProperty("city"))-->
+         <!--{-->
+         <!--console.log("contains")-->
+         <!--console.log(parseval['list']['2']['clouds'])-->
+          <!--console.log(parseval['list']['2'])-->
+         <!--$("#cloudCoverage").val( parseval['list']['2']['clouds'])-->
+         <!--$("#visibility").val(0);-->
+         <!--$("#temperature").val(parseval['list']['2']['temp']['day']);-->
+         <!--$("#dewPoint").val(0);-->
+         <!--$("#relativehumidity").val(parseval['list']['2']['humidity']);-->
+         <!--$("#windSpeed").val(parseval['list']['2']['speed']);-->
+         <!--$("#stationPressure").val(parseval['list']['2']['pressure']);-->
+         <!--$("#altimeter").val(0);-->
+
+
+         <!--}-->
+         <!--else-->
+         <!--{-->
+          <!--console.log("does nt contains")-->
+        <!--console.log(parseval['wind'].speed);-->
+         <!--$("#cloudCoverage").val( parseval['clouds'].all)-->
+         <!--$("#visibility").val(0);-->
+         <!--$("#temperature").val(parseval['main'].temp);-->
+         <!--$("#dewPoint").val(0);-->
+         <!--$("#relativehumidity").val(parseval['main'].humidity);-->
+         <!--$("#windSpeed").val(parseval['wind'].speed);-->
+         <!--$("#stationPressure").val(parseval['main'].pressure);-->
+         <!--$("#altimeter").val(0);-->
+         <!--}-->
+
+
+         }
+
+         });
+        }
+    </script>
+    <style>
+         #bg
+        {
+        background-image: url("../static/images/img1.jpg");
+        background-size:cover;
+        }
+         .button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #547fce;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #547fce}
+
+.button:active {
+  background-color: #547fce;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+    </style>
+</head>
+<body id="bg">
+<nav class="navbar navbar-inverse" style="background-color:#547fce !important ; height:70px;border-radius:20px;">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="padding-left:50px;color:white;font-family:georgia;font-style:italic;font-size:30px;">SOLAR ENERGY PREDICTION</a>
+    </div>
+    <ul class="nav navbar-nav">
+     <!-- <li class="active"><a href="/Admin">Admin Login</a></li>
+      <li><a href="/chatBox">Chat</a></li>
+      <li><a href="/PredictionInput">Solar Prediction</a></li>-->
+      <li><a href="#" style="color:white;padding-left:600px;font-size:20px;">Welcome</a></li>
+
+    </ul>
+  </div>
+</nav>
+
+
+<form action="{{ url_for('Prediction')}}" method = "POST" ><!--onsubmit="return validate()"-->
+<div style="background-color:#d98c8c">
+
+
+
+</div >
+
+
+    <div style="background-color: #547fce"><center> <table><tr>  <td style="width:150px;">   <input type="radio" name="predictAlgo" value="SVM" checked> <label style="font-size:18px;color:white">SVM </label></td>
+        <td style="width:150px;"> <input type="radio" name="predictAlgo" value="ANN" >  <label style="font-size:18px;color:white">ANN</label></td>
+        <td style="width:250px;"> <input type="radio" name="predictAlgo" value="Linear" > <label style="font-size:18px;color:white">LINEAR REGRESSION</label></td>
+        <td style="width:250px;">    <input type="radio" name="predictAlgo" value="Logistic" > <label style="font-size:18px;color:white">LOGISTIC REGRESSION</label></td>
+        <td style="width:250px;">    <input type="radio" name="predictAlgo" value="errorGraph" > <label style="font-size:18px;color:white">RELATIVE ERROR GRAPH</label></td></tr> </table></center></div><br><br>
+        <td style="width:250px;">    <input type="radio" name="predictAlgo" value="predictGraph" > <label style="font-size:18px;color:white">PREDICTION GRAPH</label></td></tr> </table></center></div><br><br>
+    <div>
+        <center><div style="padding-left:200px;"><label style="font-size:18px;color:white">SELECT DATE : </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input style="border-radius:15px;height:45px;width:250px;" type="date" id="date" onchange="fetchapivalues();"></div></center><br><br>
+
+
+
+     <div class="col-md-4" >
+
+     </div>
+
+     <div class="col-md-4"  >
+
+
+              <tr><td><label style="color:white;font-size:18px;height:45px;">TEMPERATURE:</label><br></td><br></tr>
+              <tr><td><label style="color:white;font-size:18px;height:45px;">ATMOSPHERE:</label><br></td><br></tr>
+              <tr><td><label style="color:white;font-size:18px;height:45px;">HUMIDITY:</label><br></td><br></tr>
+              <tr><td><label style="color:white;font-size:18px;height:45px;">WIND SPEED :</label><br></td><br></tr>
+              <tr><td><label style="color:white;font-size:18px;height:45px;">SUN SHINE DURATION :</label><br></td><br></tr>
+              <tr><td><label style="color:white;font-size:18px;height:45px;">AMOUNT OF CLOUD:</label><br></td><br></tr>
+              <tr><td><label style="color:white;font-size:18px;height:45px;">GLOBAL SOLAR RADIATION :</label><br></td><br></tr>
+              <tr><td><label style="color:white;font-size:18px;height:45px;">DIFFUSE SOLAR RADIATION :</label><br></td><br></tr>
+
+
+     </div>
+
+     <div class="col-md-3">
+
+          <tr><td><input style="border-radius:15px;height:45px;width:250px;" type="text" name="TEMPERATURE"  id="TEMPERATURE" /><br></td><br></tr>
+          <tr><td><input style="border-radius:15px;height:45px;width:250px;" type="text" name="ATMOSPHERE"  id="ATMOSPHERE"/><br></td><br></tr>
+              <tr><td><input style="border-radius:15px;height:45px;width:250px;" type="text" name="HUMIDITY"  id="HUMIDITY"/><br></td><br></tr>
+              <tr><td><input style="border-radius:15px;height:45px;width:250px;" type="text" name="WINDSPEED"  id="WINDSPEED"/><br></td><br></tr>
+              <tr><td><input style="border-radius:15px;height:45px;width:250px;" type="text" name="SUNSHINE"  id="SUNSHINE"/><br></td><br></tr>
+              <tr><td><input style="border-radius:15px;height:45px;width:250px;" type="text" name="AMOUNTOFCLOUD"  id="AMOUNTOFCLOUD"/><br></td><br></tr>
+              <tr><td><input style="border-radius:15px;height:45px;width:250px;" type="text" name="GLOBALSOLARRADIATION"  id="GLOBALSOLARRADIATION"/><br></td><br></tr>
+              <tr><td><input style="border-radius:15px;height:45px;width:250px;" type="text" name="DIFFUSESOLARRADIATION"  id="DIFFUSESOLARRADIATION"/><br></td><br></tr>
+     </div>
+
+ <div class="col-md-2">
+ </div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+ </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div style="padding-left:100px;" ><center><input type="submit" class="button" name ="action" value="Predict"></center></div>
+
+</form>
+</body>
+</html>
